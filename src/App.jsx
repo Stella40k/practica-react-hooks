@@ -1,27 +1,14 @@
 import "./App.css";
-import React, { useState, useEffect } from "react";
-
-//useEffect es un hooks y sirve para reaccionar a cambios
+import { Counter } from "./components/Counter";
 function App() {
-  //useEfect es una funcion q toma otra funcion como parametro, dentro del efect se
-  // hace cualquier cosa con el siclo de la app, como cuando empiece, se actualice o se termine
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    console.log("componente montado");
-  }, []); //si el array esta vacio se ejecuta una vez
-  //toma dependencias, si alguna cambia se reinicia el efecto
-
-  useEffect(() => {
-    console.log("componente actualizado");
-  }, [count]); //se ejecuta cuando userId cambia
   return (
     <div className="App">
-      <h1>Contador</h1>
-      <p>{count}</p>
+      <h1>Ejercicio 1</h1>
 
-      <button onClick={() => setCount(count + 1)}>Sumar</button>
+      <Counter initialVAlue={0} step={1} />
+      {/* <Counter initialVAlue={10} step={2} />
+      <Counter initialVAlue={100} step={5} /> */}
     </div>
   );
 }
-//cada q se actualice count volvera contar desde 0 hasta q se reinicie
 export default App;
